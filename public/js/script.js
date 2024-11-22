@@ -151,3 +151,55 @@ window.addEventListener('click', function (event) {
         document.getElementById('modal').style.display = 'none';
     }
 });
+
+document.addEventListener('DOMContentLoaded', () => {
+  updateCarousel();
+});
+
+window.nextSlide = nextSlide;
+window.prevSlide = prevSlide;
+window.changeSlide = changeSlide;
+
+function nextSlide() {
+  console.log('Next slide clicked');
+  const slides = document.querySelectorAll('.carousel-item');
+  currentSlide = (currentSlide + 1) % slides.length;
+  updateCarousel();
+}
+
+let currentSlide = 0;
+
+function updateCarousel() {
+  const slides = document.querySelectorAll('.carousel-item');
+  const indicators = document.querySelectorAll('.carousel-indicators button');
+
+  slides.forEach((slide, index) => {
+    slide.classList.toggle('active', index === currentSlide);
+  });
+
+  indicators.forEach((indicator, index) => {
+    indicator.classList.toggle('active', index === currentSlide);
+  });
+
+  const carouselInner = document.querySelector('.carousel-inner');
+  carouselInner.style.transform = `translateX(-${currentSlide * 100}%)`;
+}
+
+function nextSlide() {
+  const slides = document.querySelectorAll('.carousel-item');
+  currentSlide = (currentSlide + 1) % slides.length;
+  updateCarousel();
+}
+
+function prevSlide() {
+  const slides = document.querySelectorAll('.carousel-item');
+  currentSlide = (currentSlide - 1 + slides.length) % slides.length;
+  updateCarousel();
+}
+
+function changeSlide(index) {
+  currentSlide = index;
+  updateCarousel();
+}
+
+updateCarousel();
