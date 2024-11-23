@@ -4,7 +4,7 @@ body {
     display: flex;
     height: 100vh;
     overflow: hidden;
-    background-color: #fff;
+    background-color: rgb(1, 16, 43);
 }
 
 
@@ -35,7 +35,7 @@ body {
 
 .sidebar {
     width: 250px;
-    background-color: #fff;
+    background-color: rgb(1, 16, 43);
     color: #333;
     display: flex;
     flex-direction: column;
@@ -83,13 +83,13 @@ body {
 .sidebar-item {
     padding: 10px;
     cursor: pointer;
-    color: #333;
+    color: #eeecec;
     transition: background-color 0.3s ease, border-radius 0.3s ease;
     position: relative;
 }
 
 .sidebar-item:hover {
-    background-color: #e0e0e0;
+    background-color: #2a415f;
     border-radius: 0 15px 15px 0;
 }
 
