@@ -152,22 +152,31 @@ window.addEventListener('click', function (event) {
     }
 });
 
+/*let currentSlide = 0;
+
 document.addEventListener('DOMContentLoaded', () => {
   updateCarousel();
 });
 
-window.nextSlide = nextSlide;
-window.prevSlide = prevSlide;
-window.changeSlide = changeSlide;
-
 function nextSlide() {
-  console.log('Next slide clicked');
+  console.log('Next slide called');
   const slides = document.querySelectorAll('.carousel-item');
   currentSlide = (currentSlide + 1) % slides.length;
   updateCarousel();
 }
 
-let currentSlide = 0;
+function prevSlide() {
+  console.log('Previous slide called');
+  const slides = document.querySelectorAll('.carousel-item');
+  currentSlide = (currentSlide - 1 + slides.length) % slides.length;
+  updateCarousel();
+}
+
+function changeSlide(index) {
+  console.log('Change slide to index', index);
+  currentSlide = index;
+  updateCarousel();
+}
 
 function updateCarousel() {
   const slides = document.querySelectorAll('.carousel-item');
@@ -202,4 +211,30 @@ function changeSlide(index) {
   updateCarousel();
 }
 
-updateCarousel();
+updateCarousel(); */
+
+document.addEventListener('DOMContentLoaded', () => {
+  updateCarousel();
+});
+
+ var currentSlide = 0;
+ var nombre = 'Madison'
+function nextSlide() {
+  console.log(nombre);
+  console.log(currentSlide);
+  const slides = document.querySelectorAll('.carousel-item');
+  /*currentSlide = (currentSlide + 1) % slides.length;
+  updateCarousel();*/
+}
+
+prevSlide = function () {
+  console.log('Previous slide called');
+  const slides = document.querySelectorAll('.carousel-item');
+  currentSlide = (currentSlide - 1 + slides.length) % slides.length;
+  updateCarousel();
+};
+
+
+
+
+
