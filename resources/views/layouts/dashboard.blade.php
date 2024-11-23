@@ -30,11 +30,6 @@
 
                 <div class="sidebar-item">
                     Contacto
-                    <div class="submenu">
-                        <div class="submenu-item">Crear</div>
-                        <div class="submenu-item">Actualizar</div>
-                        <div class="submenu-item">Eliminar</div>
-                    </div>
                 </div>
 
                 <div class="sidebar-item" 
