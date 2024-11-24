@@ -529,7 +529,7 @@ body {
     padding: 10px;
     border-radius: 5px;
 }
-  
+
 .carousel-indicators {
     position: absolute;
     bottom: 15px;
@@ -572,5 +572,3 @@ body {
 .carousel-control-next {
     right: 10px;
 }
-  
-  
