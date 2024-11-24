@@ -53,7 +53,7 @@
                 <button class="menu-toggle" id="menu-toggle">☰</button>
                 <div class="header-title">@yield('nameModule')</div>
                 <div class="user-info">
-                    <img src="user-profile.jpg" alt="Foto de Usuario" class="user-photo" id="user-photo">
+                    <img src="{{asset('img/profile.png')}}" alt="Foto de Usuario" class="user-photo" id="user-photo">
                     <div class="dropdown" id="dropdown">
                         <div class="dropdown-menu">
                             <button class="dropdown-item">{{ Auth::user()->nombre_completo }}</button>
