@@ -32,6 +32,7 @@
                 </div>
             </div>
         </div>
+        
         <button class="carousel-control-prev" onclick="prevSlide()">&#10094;</button>
         <button class="carousel-control-next" onclick="nextSlide()">&#10095;</button>
     </div>
@@ -102,9 +103,13 @@
             </div>
         </div>
     </div>
+
+    <script src="{{ asset('js/script.js') }}"></script>
+    @yield('js')
 @endsection
 
-@section('js')
+
+<!--@section('js')
     
-@endsection
+@endsection-->
 
