@@ -21,28 +21,41 @@
 @endsection
 
 @section('formCreate')
-        <form id="crearForm">
 
-            <label for="nombre_completo">Nombre Completo</label>
-            <input type="text" id="nombre_completo" name="nombre_completo" required>
+    <form method="POST" id="crearForm" action="{{route('users.store')}}">
+        @csrf
+        <label for="nombre_completo">Nombre Completo</label>
+        <input type="text" id="nombre_completo" name="nombre_completo" required>
 
-            <label for="rol">Rol:</label>
-            <select name="rol" id="rol" required>
-                <option value="admin">Admin</option>
-                <option value="user">User</option>
-            </select>
+        <label for="rol">Rol:</label>
+        <select name="rol" id="rol" required>
+            <option value="admin">Admin</option>
+            <option value="user">User</option>
+        </select>
 
-            <label for="email">Email:</label>
-            <input type="email" id="email" name="email" required>
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required>
 
-            <label for="password">Contraseña:</label>
-            <input type="password" id="password" name="password" required>
+        <div class="mt-4">
+            <x-input-label for="password" :value="__('Password')" />
 
-            <label for="password_confirmation">Confirmar Contraseña:</label>
-            <input type="password" id="password_confirmation" name="password_confirmation" required>
+            <x-text-input id="password" class="block mt-1 w-full" type="password" name="password" required
+                autocomplete="new-password" />
 
-            <button type="submit" class="btn">Guardar Cambios</button>
-        </form>
+            <x-input-error :messages="$errors->get('password')" class="mt-2" />
+        </div>
+
+        <div class="mt-4">
+            <x-input-label for="password_confirmation" :value="__('Confirm Password')" />
+
+            <x-text-input id="password_confirmation" class="block mt-1 w-full" type="password" name="password_confirmation"
+                required autocomplete="new-password" />
+
+            <x-input-error :messages="$errors->get('password_confirmation')" class="mt-2" />
+        </div>
+
+        <button type="submit" class="btn">Guardar cambios</button>
+    </form>
 @endsection
 
 @section('formEdit')
