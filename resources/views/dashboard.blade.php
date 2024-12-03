@@ -3,41 +3,8 @@
 
 @section('content')
  
-    <div id="carouselExampleCaptions" class="carousel">
-        <div class="carousel-indicators">
-            <button onclick="changeSlide(0)" class="active" aria-label="Slide 1"></button>
-            <button onclick="changeSlide(1)" aria-label="Slide 2"></button>
-        </div>
-
-        <div class="carousel-inner">
-            <div class="carousel-item active">
-                <img src="{{asset('img/carrusel.jpeg')}}" alt="">
-            </div>
-
-            <div class="carousel-item">
-                <img src="{{asset('img/fondo.jpeg')}}" alt="">
-                <div class="carousel-caption">
-                    <h5>¿Quienes somos?</h5>
-                    <p>
-                        En DuinTech Solutions somos una empresa familiar apasionada por la tecnología y el desarrollo de software. Nos especializamos en crear soluciones digitales personalizadas para personas y empresas, adaptándonos a las necesidades únicas de cada proyecto.   
-                    </p>
-
-                    <p>
-                        Nuestra filosofía combina innovación tecnológica con un enfoque humano, asegurándonos de que cada herramienta que diseñamos no solo sea eficiente, sino también accesible y práctica para nuestros clientes.
-                    </p>
-
-                    <p>
-                        Como equipo familiar, valoramos la cercanía, la confianza y el compromiso, construyendo relaciones sólidas que nos permitan crecer junto a quienes confían en nosotros. Transformamos tus ideas en soluciones digitales que impulsan el futuro.
-                    </p>
-                </div>
-            </div>
-        </div>
-        
-        <button class="carousel-control-prev" onclick="prevSlide()">&#10094;</button>
-        <button class="carousel-control-next" onclick="nextSlide()">&#10095;</button>
-    </div>
-
-    <!--<h1>¿Quiénes somos?</h1>
+    <img src="{{asset('img/carrusel.jpeg')}}" class="img-carrusel" alt="">
+    <h1>¿Quiénes somos?</h1>
     <p>
         En DuinTech Solutions somos una empresa familiar apasionada por la tecnología y el desarrollo de software. Nos especializamos en crear soluciones digitales personalizadas para personas y empresas, adaptándonos a las necesidades únicas de cada proyecto.   
     </p>
@@ -48,7 +15,7 @@
 
     <p>
         Como equipo familiar, valoramos la cercanía, la confianza y el compromiso, construyendo relaciones sólidas que nos permitan crecer junto a quienes confían en nosotros. Transformamos tus ideas en soluciones digitales que impulsan el futuro.
-    </p> -->
+    </p> 
 
     <h1>Nuestro equipo</h1>
 
