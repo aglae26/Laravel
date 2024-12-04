@@ -34,7 +34,7 @@ class UserController extends Controller
     public function store(UserRequest $request)
     {
         //
-        dd($request->all());
+        //dd($request->all());
         $user = new User();
         $user->nombre_completo = $request->nombre_completo;
         $user->rol = $request->rol;
@@ -65,16 +65,26 @@ class UserController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(UserRequest $request, User $user)
     {
         //
+        $user->nombre_completo = $request->nombre_completo;
+        $user->rol = $request->rol;
+        $user->email = $request->email;
+
+        if($user->save()){
+            return redirect('users')->with('message',  'El usuario'.$user->nombre_completo .'fue actualizado con éxito');
+        }
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy(User $user)
     {
         //
+        if($user->delete()){
+            return redirect('users')->with('message',  'El usuario'.$user->nombre_completo .'fue eliminado con éxito');
+        }
     }
 }
