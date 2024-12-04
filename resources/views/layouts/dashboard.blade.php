@@ -81,7 +81,7 @@
                 <!-- Modal Actualizar -->
                 <div id="editModal" class="modal-actualizar">
                     <div class="modal-content">
-                        <span class="close-btn" id="close-btn-crear">&times;</span>
+                        <span class="close-btn-actualizar">&times;</span>
                         <h2>Formulario editar</h2>
                         @yield('formEdit')
                     </div>
@@ -92,7 +92,32 @@
     </div>
 
     <script src="{{ asset('js/script.js') }}"></script>
-    @yield('js')
+    <script src="{{ asset('js/jquery-3.7.1.min.js') }}"></script>
+
+    @section('js')
+        <script> 
+            $('div').on('click', '.delete-btn', function() {
+                $nombre_completo = $(this).parent().parent().find('h3').text().split(":").pop().trim();
+
+                Swal.fire({
+                    title: "¿Realmente deseas eliminar éste usuario?",
+                    text: "¡Este proceso es irrevercible!",
+                    icon: "warning",
+                    showCancelButton: true,
+                    confirmButtonColor: "#3085d6",
+                    cancelButtonColor: "#d33",
+                    confirmButtonText: "Si, eliminalo!"
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        $(this).next().submit();
+                    }
+                });
+            });
+        </script>
+    
+    @endsection
+
+     @yield('js')
 </body>
 
 </html>
