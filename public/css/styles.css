@@ -55,7 +55,7 @@ body {
 }
 
 .menu-toggle {
-    background: #fff;
+    background: rgb(247, 247, 248);
     color: #333;
     border: none;
     width: 40px;
@@ -71,8 +71,8 @@ body {
 }
 
 .menu-toggle:hover {
-    background-color: #e0e0e0;
-    color: #000;
+    background-color: #7a7c7e;
+    color: #faf4f4;
 }
 
 .sidebar-content {
@@ -136,7 +136,7 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: #fff;
+    background-color: rgb(245, 246, 248);
     padding: 10px;
     z-index: 1000;
     position: fixed;
