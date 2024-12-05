@@ -496,3 +496,160 @@ body {
     margin-right: 20px; 
     justify-content: center;
 }
+
+/*Contacto*/
+
+.td {
+    text-align: center;
+    vertical-align: middle; 
+    padding: 20px; 
+}
+
+.info {
+    font-family: Arial, sans-serif; 
+    color: rgb(1, 121, 158); 
+    line-height: 1.5; 
+    text-align: center;
+}
+
+.text-1{
+    text-align: center;
+}
+
+.text-2 {
+    display: flex; 
+    align-items: center; 
+    justify-content: center;
+    gap: 10px; 
+    margin-top: 10px; 
+}
+
+.icon-email {
+    width: 25px; 
+}
+
+.text-2 p {
+    margin: 0; 
+    font-size: 14px; 
+    color: rgb(1, 121, 158); 
+}
+
+/* Formato Contacto*/
+.form-contact{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 80vh;
+    width: 80vh;
+    background-color: rgb(1, 16, 43);
+}
+
+.form-contact form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
+    width: 400px;
+    padding: 30px;
+    border: 1px solid rgba(25, 197, 240, 0.5);
+    border-radius: 8px;
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    color: white;
+}
+
+.form-contact img{
+    width: 25%;
+    margin-bottom: 4px;
+}
+
+.form-contact form div {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.form-contact form .input-field {
+    position: relative;
+    border-bottom: 2px solid rgba(25, 197, 240, 0.5);
+    width: 100%;
+}
+
+.form-contact form .input-field input {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    background: transparent;
+    border: none;
+    outline: none;
+    color: white;  
+}
+
+.form-contact form button {
+    width: 100%;
+    padding: 10px;
+    background-color: rgba(25, 197, 240, 0.5);
+    border: none;
+    border-radius: 4px;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.form-contact form button:hover {
+    background-color: rgba(25, 197, 240, 0.8);  
+}
+
+.hidden {
+    display: none;
+}
+
+.success-message {
+    color: green;
+    font-weight: bold;
+}
+
+.modal {
+    display: none;  /* Inicialmente oculto */
+    position: fixed;
+    z-index: 1; /* Coloca el modal encima del contenido */
+    left: 0;
+    top: 0;
+    width: 100%; /* Ancho completo */
+    height: 100%; /* Alto completo */
+    background-color: rgba(0, 0, 0, 0.4); /* Fondo semitransparente */
+}
+
+/* Contenido del modal */
+.modal-content {
+    background-color: white;
+    margin: 15% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+    max-width: 500px;
+    text-align: center;
+}
+
+/* Estilo para el botón de cerrar */
+.close-btn {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close-btn:hover,
+.close-btn:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+
+
+
+
+
+
