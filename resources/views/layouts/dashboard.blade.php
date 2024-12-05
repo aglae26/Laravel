@@ -18,21 +18,11 @@
                     Inicio
                 </div>
 
-                <div class="sidebar-item">
-                    Herramientas
-                    <div class="submenu">
-                        <div class="submenu-item">Crear</div>
-                        <div class="submenu-item">Listar</div>
-                        <div class="submenu-item">Actualizar</div>
-                        <div class="submenu-item">Eliminar</div>
-                    </div>
-                </div>
-
-                <div class="sidebar-item">
+                <div class="sidebar-item" onclick="window.location.href='{{ route('contact') }}'">
                     Contacto
                 </div>
 
-                <div class="sidebar-item" @if(Route::currentRouteName() == 'dashboard')
+                <div class="sidebar-item" @if(Route::currentRouteName() != 'users.index')
                 onclick="window.location.href='{{ route('users.index') }}'" @endif>
                     Usuarios
                     @if(Route::currentRouteName() == 'users.index')
