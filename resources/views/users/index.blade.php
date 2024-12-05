@@ -96,3 +96,45 @@
     </div>
 </form>
 @endsection
+
+@section('js')
+
+    <script>
+        $('div').on('click', '.delete-btn', function() {
+            $nombre_completo = $(this).parent().parent().find('h3').text().split(":").pop().trim();
+
+            Swal.fire({
+                title: "¿Realmente quiere eliminar a éste usuario?",
+                text: "¡Este proceso es irrevercible!",
+                icon: "warning",
+                showCancelButton: true,
+                confirmButtonColor: "#3085d6",
+                cancelButtonColor: "#d33",
+                confirmButtonText: "Si, eliminalo!"
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    $(this).next().submit();
+                }
+            });
+        });
+
+        // Búsqueda
+
+        $('#qsearch').on('keyup', function(e) {
+            e.preventDefault();
+            $query = $(this).val();
+            $token = $('input[name=_token]').val();
+
+            $.post('users/search', 
+                {
+                    q: $query,
+                    _token: $token
+                },
+                function(data) {
+                    $('.content').empty().append(data);
+                }
+            )
+        });
+    </script>
+
+@endsection
