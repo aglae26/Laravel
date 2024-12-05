@@ -37,6 +37,7 @@ class UserController extends Controller
         //dd($request->all());
         $user = new User();
         $user->nombre_completo = $request->nombre_completo;
+        $user->username = $request->username;
         $user->rol = $request->rol;
         $user->email = $request->email;
         $user->password = bcrypt($request->password);
@@ -69,6 +70,7 @@ class UserController extends Controller
     {
         //
         $user->nombre_completo = $request->nombre_completo;
+        $user->username = $request->username;
         $user->rol = $request->rol;
         $user->email = $request->email;
 
@@ -88,8 +90,7 @@ class UserController extends Controller
         }
     }
 
-    public function search(Request $request)
-    {
+    public function search(Request $request){
         $users = User::names($request->q)->get();
         return view('users.search')->with('users', $users);
     }
