@@ -14,7 +14,7 @@ class UserController extends Controller
     public function index()
     {
         //
-        $users= User::all();
+        $users = User::all();
         return view('users.index')->with('users', $users);
     }
 
@@ -41,8 +41,8 @@ class UserController extends Controller
         $user->email = $request->email;
         $user->password = bcrypt($request->password);
 
-        if($user->save()){
-            return redirect('users')->with('message',  'El usuario'.$user->nombre_completo .'fue creado con éxito');
+        if ($user->save()) {
+            return redirect('users')->with('message', 'El usuario' . $user->nombre_completo . 'fue creado con éxito');
         }
     }
 
@@ -72,8 +72,8 @@ class UserController extends Controller
         $user->rol = $request->rol;
         $user->email = $request->email;
 
-        if($user->save()){
-            return redirect('users')->with('message',  'El usuario'.$user->nombre_completo .'fue actualizado con éxito');
+        if ($user->save()) {
+            return redirect('users')->with('message', 'El usuario' . $user->nombre_completo . 'fue actualizado con éxito');
         }
     }
 
@@ -83,8 +83,8 @@ class UserController extends Controller
     public function destroy(User $user)
     {
         //
-        if($user->delete()){
-            return redirect('users')->with('message',  'El usuario'.$user->nombre_completo .'fue eliminado con éxito');
+        if ($user->delete()) {
+            return redirect('users')->with('message', 'El usuario' . $user->nombre_completo . 'fue eliminado con éxito');
         }
     }
 }
