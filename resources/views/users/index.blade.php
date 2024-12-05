@@ -32,6 +32,9 @@
     <label for="nombre_completo">Nombre Completo:</label>
     <input type="text" id="nombre_completo" name="nombre_completo" required>
 
+    <label for="username">Nombre de Usuario: </label>
+    <input type="text" id="username" name="username" require />
+
     <div>
         <label for="rol">Rol:</label>
         <select id="rol" name="rol" required>
@@ -78,8 +81,13 @@
     </div>
 
     <div>
+        <label for="username">Nombre de Usuario: </label>
+        <input type="text" id="username" name="username" require />
+    </div>
+
+    <div>
         <label for="edit_rol">Rol:</label>
-        <select name="edit_rol" id="edit_rol" required>
+        <select id="edit_rol" name="rol">
             <option value="admin">Admin</option>
             <option value="user">User</option>
         </select>
@@ -126,7 +134,10 @@
         $token = $('input[name=_token]').val();
 
         $.post('users/search',
-            {q: $query, _token: $token},
+            {
+                q: $query,
+                _token: $token
+            },
             function (data) {
                 $('.content').empty().append(data);
             }
