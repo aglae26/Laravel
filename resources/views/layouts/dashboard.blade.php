@@ -98,7 +98,6 @@
     <script src="{{ asset('js/script.js') }}"></script>
     <script src="{{ asset('js/jquery-3.7.1.min.js') }}"></script>
 
-    @section('js')
     <script>
         @if (session('message'))
             const Toast = Swal.mixin({
@@ -119,7 +118,6 @@
         @endif
     </script>
 
-    @endsection
 
     @yield('js')
 </body>

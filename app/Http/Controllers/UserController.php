@@ -87,4 +87,10 @@ class UserController extends Controller
             return redirect('users')->with('message', 'El usuario' . $user->nombre_completo . 'fue eliminado con éxito');
         }
     }
+
+    public function search(Request $request)
+    {
+        $users = User::names($request->q)->get();
+        return view('users.search')->with('users', $users);
+    }
 }
