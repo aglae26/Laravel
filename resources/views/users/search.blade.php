@@ -2,9 +2,9 @@
     @forelse ($users as $user)
         <div class="user-card">
             <div class="user-card-content">
-                <h3>Nombre Completo:{{$user->nombre_completo}}</h3>
+                <h3>Nombre Completo: {{ $user->nombre_completo }} </h3>
                 <p>Usuario:{{$user->username}}</p>
-                <p>Rol:{{$user->rol}}</p>
+                <p>Rol: {{ ucfirst(strtolower($user->rol)) }}</p>
                 <p>Email:{{$user->email}}</p>
                 <p hidden>id: {{ $user->id }}</p>
             </div>
