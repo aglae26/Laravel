@@ -32,10 +32,8 @@
                     Contacto
                 </div>
 
-                <div class="sidebar-item" 
-                    @if(Route::currentRouteName() == 'dashboard')
-                        onclick="window.location.href='{{ route('users.index') }}'"
-                    @endif>
+                <div class="sidebar-item" @if(Route::currentRouteName() == 'dashboard')
+                onclick="window.location.href='{{ route('users.index') }}'" @endif>
                     Usuarios
                     @if(Route::currentRouteName() == 'users.index')
                         <div class="submenu">
@@ -52,13 +50,19 @@
             <header class="header">
                 <button class="menu-toggle" id="menu-toggle">☰</button>
                 <div class="header-title">@yield('nameModule')</div>
+                <div class="search-module">
+                    <input type="text" placeholder="Buscar..." class="search-input" id="qsearch">
+                </div>
                 <div class="user-info">
                     <img src="{{asset('img/profile.png')}}" alt="Foto de Usuario" class="user-photo" id="user-photo">
                     <div class="dropdown" id="dropdown">
                         <div class="dropdown-menu">
-                            <button class="dropdown-item">{{ Auth::user()->nombre_completo }}</button>
+                            <button class="dropdown-item">{{ Auth::User()->nombre_completo }}</button>
                             <button class="dropdown-item">Perfil</button>
                             <button onclick="logout.submit()" class="dropdown-item">Cerrar sesión</button>
+                            <form method="POST" id="logout" action="{{ route('logout')}}">
+                                @csrf
+                            </form>
                         </div>
                     </div>
                 </div>
@@ -95,29 +99,29 @@
     <script src="{{ asset('js/jquery-3.7.1.min.js') }}"></script>
 
     @section('js')
-        <script> 
-            $('div').on('click', '.delete-btn', function() {
-                $nombre_completo = $(this).parent().parent().find('h3').text().split(":").pop().trim();
-
-                Swal.fire({
-                    title: "¿Realmente deseas eliminar éste usuario?",
-                    text: "¡Este proceso es irrevercible!",
-                    icon: "warning",
-                    showCancelButton: true,
-                    confirmButtonColor: "#3085d6",
-                    cancelButtonColor: "#d33",
-                    confirmButtonText: "Si, eliminalo!"
-                }).then((result) => {
-                    if (result.isConfirmed) {
-                        $(this).next().submit();
-                    }
-                });
+    <script>
+        @if (session('message'))
+            const Toast = Swal.mixin({
+                toast: true,
+                position: "top-end",
+                showConfirmButton: false,
+                timer: 3000,
+                timerProgressBar: true,
+                didOpen: (toast) => {
+                    toast.onmouseenter = Swal.stopTimer;
+                    toast.onmouseleave = Swal.resumeTimer;
+                }
             });
-        </script>
-    
+            Toast.fire({
+                icon: "success",
+                title: "{{ session('message') }}"
+            });
+        @endif
+    </script>
+
     @endsection
 
-     @yield('js')
+    @yield('js')
 </body>
 
 </html>
