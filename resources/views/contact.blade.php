@@ -23,7 +23,6 @@
             <form method="POST" action="{{ route('contact') }}" id="formEmail">
                 @csrf
 
-                <!-- Icon -->
                 <img src="{{asset('icon/Icon1.png')}}" alt="">
 
                 <div class="input-field">
@@ -44,39 +43,7 @@
 
             </form>
 
-            <div id="modal" class="modal hidden">
-                <div class="modal-content">
-                    <span class="close-btn" id="closeModal">&times;</span>
-                    <p class="success-message">¡Correo enviado exitosamente!</p>
-                    <p><strong>Nombre:</strong> <span id="displayName"></span></p>
-                    <p><strong>Correo:</strong> <span id="displayEmail"></span></p>
-                    <p><strong>Teléfono:</strong> <span id="displayPhone"></span></p>
-                </div>
-            </div>
-
-            <script>
-                document.getElementById('formEmail').addEventListener('submit', function (event) {
-                    event.preventDefault();
-
-                    const name = document.getElementById('name').value;
-                    const email = document.getElementById('email').value;
-                    const phone = document.getElementById('phone').value;
-
-                    // Mostrar los valores en el modal
-                    document.getElementById('displayName').textContent = name;
-                    document.getElementById('displayEmail').textContent = email;
-                    document.getElementById('displayPhone').textContent = phone;
-
-                    // Mostrar el modal
-                    document.getElementById('modal').classList.remove('hidden');
-                });
-
-                // Cerrar el modal cuando se haga clic en el botón de cerrar
-                document.getElementById('closeModal').addEventListener('click', function () {
-                    document.getElementById('modal').classList.add('hidden');
-                });
-            </script>
-
+            <p class="success-message">¡Correo enviado exitosamente!</p>
         </td>
     </tr>
 </table>
