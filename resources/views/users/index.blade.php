@@ -82,7 +82,7 @@
 
     <div>
         <label for="username">Nombre de Usuario: </label>
-        <input type="text" id="username" name="username" require />
+        <input type="text" id="edit_username" name="username" require />
     </div>
 
     <div>
