@@ -37,13 +37,21 @@
                     <x-text-input id="phone" placeholder="Teléfono" required />
                 </div>
 
-                <x-primary-button class="ms-3" type="submit">
-                    {{ __('Enviar') }}
-                </x-primary-button>
+                <a href="#message">
+                    <x-primary-button class="ms-3" type="submit">
+                        {{ __('Enviar') }}
+                    </x-primary-button>
+                </a>
 
             </form>
 
-            <p class="success-message">¡Correo enviado exitosamente!</p>
+            <div id="message" class="message">
+                <div class="message-content">
+                    <a href="#">&times;</a>
+                    <p class="success-message">¡Correo enviado exitosamente!</p>
+                </div>
+            </div>
+            
         </td>
     </tr>
 </table>
