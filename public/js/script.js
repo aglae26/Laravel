@@ -1,4 +1,4 @@
-document.getElementById('menu-toggle').addEventListener('click', function () {
+/* document.getElementById('menu-toggle').addEventListener('click', function () {
   const sidebar = document.getElementById('sidebar');
   const mainContent = document.getElementById('main-content');
 
@@ -11,7 +11,21 @@ document.getElementById('menu-toggle').addEventListener('click', function () {
   } else {
     mainContent.classList.remove('shifted');
   }
-});
+});*/
+
+const menuToggle = document.getElementById('menu-toggle');
+if (menuToggle) {
+    menuToggle.addEventListener('click', function () {
+        const sidebar = document.getElementById('sidebar');
+        const mainContent = document.getElementById('main-content');
+
+        if (sidebar && mainContent) {
+            sidebar.classList.toggle('hidden');
+            mainContent.classList.toggle('shifted', sidebar.classList.contains('hidden'));
+        }
+    });
+}
+
 
 document.querySelectorAll('.sidebar-item').forEach(item => {
   item.addEventListener('click', function () {
@@ -25,10 +39,21 @@ document.querySelectorAll('.sidebar-item').forEach(item => {
   });
 });
 
-document.getElementById('user-photo').addEventListener('click', function () {
+/*document.getElementById('user-photo').addEventListener('click', function () {
   const dropdown = document.getElementById('dropdown');
   dropdown.classList.toggle('show');
+});*/
+
+document.addEventListener('DOMContentLoaded', function () {
+  const userPhoto = document.getElementById('user-photo');
+  if (userPhoto) {
+      userPhoto.addEventListener('click', function () {
+          const dropdown = document.getElementById('dropdown');
+          dropdown?.classList.toggle('show');
+      });
+  }
 });
+
 
 // Close dropdown if clicked outside
 document.addEventListener('click', function (event) {
@@ -50,10 +75,20 @@ document.querySelectorAll('.submenu-item').forEach(item => {
   }
 });
 
-// Cierra el modal al hacer clic en el botón de cerrar
+/*
 document.getElementById('close-btn-crear').addEventListener('click', function () {
   document.getElementById('modal').style.display = 'none';
+});*/
+
+document.addEventListener('DOMContentLoaded', function () {
+  const closeBtnCrear = document.getElementById('close-btn-crear');
+  if (closeBtnCrear) {
+      closeBtnCrear.addEventListener('click', function () {
+          document.getElementById('modal').style.display = 'none';
+      });
+  }
 });
+
 
 // Cierra el modal al hacer clic fuera del contenido del modal
 window.addEventListener('click', function (event) {
@@ -69,88 +104,56 @@ if (currentPath === '/users') {
   document.querySelectorAll('.edit-btn').forEach(button => {
     button.addEventListener('click', function () {
       const card = this.closest('.user-card');
-      const nombreCompleto = card.querySelector('h3').innerText.split(": ")[1];
-      const rol = card.querySelector('p:nth-child(5)').innerText.split(": ")[1];
-      const email = card.querySelector('p:nth-child(7)').innerText.split(": ")[1];
-      const id = card.querySelector('p:nth-child(8)').innerText.split(": ")[1];
+      const nombreCompleto = card.querySelector('h3').innerText.split(":")[1];
+      const username = card.querySelector('p:nth-child(2)').innerText.split(":")[1];
+      const rol = card.querySelector('p:nth-child(3)').innerText.split(":")[1];
+      const email = card.querySelector('p:nth-child(4)').innerText.split(":")[1];
+      const id = card.querySelector('p:nth-child(5)').innerText.split(":")[1];
 
       document.getElementById('edit_nombre_completo').value = nombreCompleto;
+      document.getElementById('edit_username').value = username;
       document.getElementById('edit_rol').value = rol;
       document.getElementById('edit_email').value = email;
       document.getElementById('edit_id').value = id;
 
       const baseUrl = document.getElementById('editForm').getAttribute('data-action-base');
       document.getElementById('editForm').action = `${baseUrl}/${id}`;
+ 
       document.getElementById('editModal').style.display = 'flex';
     });
   });
 
 }
 
-if (currentPath === '/tools') {
-  document.querySelectorAll('.edit-btn').forEach(button => {
-    button.addEventListener('click', function () {
-      const card = this.closest('.user-card');
-      const nombre = card.querySelector('h3').innerText.split(": ")[1];
-      const marca = card.querySelector('p:nth-child(2)').innerText.split(": ")[1];
-      const cantidad = card.querySelector('p:nth-child(3)').innerText.split(": ")[1];
-      const precio = card.querySelector('p:nth-child(4)').innerText.split(": ")[1];
-      const estado = card.querySelector('p:nth-child(5)').innerText.split(": ")[1];
-      const id = card.querySelector('p:nth-child(6)').innerText.split(": ")[1];
-
-      document.getElementById('edit_nombre').value = nombre;
-      document.getElementById('edit_marca').value = marca;
-      document.getElementById('edit_cantidad').value = cantidad;
-      document.getElementById('edit_precio').value = precio;
-      document.getElementById('edit_estado').value = estado;
-      document.getElementById('edit_id').value = id;
-
-      const baseUrl = document.getElementById('editForm').getAttribute('data-action-base');
-      document.getElementById('editForm').action = `${baseUrl}/${id}`;
-      document.getElementById('editModal').style.display = 'flex';
-    });
-  });
-}
-
-if (currentPath === '/loans') {
-  document.querySelectorAll('.edit-btn').forEach(button => {
-    button.addEventListener('click', function () {
-      const card = this.closest('.user-card');
-      const nombreUsuario = card.querySelector('h3').innerText.split(": ")[1];
-      const nombreHerramienta = card.querySelector('p:nth-child(2)').innerText.split(": ")[1];
-      const Marca = card.querySelector('p:nth-child(3)').innerText.split(": ")[1];
-      const fechaPrestamo = card.querySelector('p:nth-child(4)').innerText.split(": ")[1];
-      const fechaDevolucion = card.querySelector('p:nth-child(5)').innerText.split(": ")[1];
-      const fechaFin= card.querySelector('p:nth-child(6)').innerText.split(": ")[1];
-      const estado = card.querySelector('p:nth-child(7)').innerText.split(": ")[1];
-      const id = card.querySelector('p:nth-child(8)').innerText.split(": ")[1];
-
-      document.getElementById('nombre_usuario').value = nombreUsuario;
-      document.getElementById('nombre_herramienta').value = nombreHerramienta;
-      document.getElementById('marca').value = Marca;
-      document.getElementById('fecha_prestamo').value = fechaPrestamo;
-      document.getElementById('fecha_devolucion').value = fechaDevolucion;
-      document.getElementById('fecha_fin').value = fechaFin;
-      document.getElementById('estado').value = estado;
-      document.getElementById('id').value = id;
-
-
-      const baseUrl = document.getElementById('editForm').getAttribute('data-action-base');
-      document.getElementById('editForm').action = `${baseUrl}/${id}`;
-      document.getElementById('editModal').style.display = 'flex';
-    });
-  });
-}
-
-
-document.querySelector('.close-btn-actualizar').addEventListener('click', function () {
+/*document.querySelector('.close-btn-actualizar').addEventListener('click', function () {
   document.getElementById('editModal').style.display = 'none';
   console.log('click');
+});*/
+
+document.addEventListener('DOMContentLoaded', function () {
+  const closeBtnActualizar = document.querySelector('.close-btn-actualizar');
+  if (closeBtnActualizar) {
+      closeBtnActualizar.addEventListener('click', function () {
+          document.getElementById('editModal').style.display = 'none';
+          console.log('click');
+      });
+  }
 });
 
-document.querySelector('.cancel-btn').addEventListener('click', function () {
+
+/*document.querySelector('.cancel-btn').addEventListener('click', function () {
   document.getElementById('editModal').style.display = 'none';
+});*/
+
+document.addEventListener('DOMContentLoaded', function () {
+  const cancelBtn = document.querySelector('.cancel-btn');
+  if (cancelBtn) {
+      cancelBtn.addEventListener('click', function () {
+          document.getElementById('editModal').style.display = 'none';
+      });
+  }
 });
+
 
 window.addEventListener('click', function (event) {
   const modal = document.getElementById('editModal');
@@ -158,3 +161,4 @@ window.addEventListener('click', function (event) {
     modal.style.display = 'none';
   }
 });
+
